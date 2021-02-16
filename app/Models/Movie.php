@@ -12,8 +12,13 @@ class Movie extends Model
     protected $fillable = [
         'title',
         'director',
+        'imageUrl',
         'duration',
         'genre',
         'release_date',
     ];
+
+    public static function search($title="") {
+        return self::where("title", "LIKE", "%$title%");
+    }
 }
